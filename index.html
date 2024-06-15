@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Array Operations</title>
+  <title>Data structures (Queue)</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="container">
-    <h1>Array Operations</h1>
-    <div class="operations">
-      <button onclick="access()">Access</button>
-      <button onclick="search()">Search</button>
-      <button onclick="insertion()">Insertion</button>
+<body onload="StartProgram()">  
+  <div class="container">   <!-- crea un contenedor bajo la clase container-->
+    <h1>Queue Structure</h1>
+    <div class="operations"> <!-- Para contener los botones -->
+      <button onclick="Read()">Read</button>
+      <button onclick="searchFirst()">First Element</button>
+      <!--button onclick="insertion()">Insertion</button-->
       <button onclick="deletion()">Deletion</button>
     </div>
+    <!-- Asi se agrega comentarios -->
+    <div>
+      <input type="string" id="inputNumber" placeholder="Ingresa un número">
+      <button onclick="addToQueue()">Add to queue</button>
+    </div>
     <div id="output"></div>
+    <div id="output2"></div>
+    <div id="imageContainer">
+      <img src="Queue1.png">
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
