@@ -1,150 +1,130 @@
-//Enqueue, Dequeue, Peek, Empty
+class Queue
+{
+    constructor()
+    {
+      this.itemsQueue = [];  //Se agrega el array item por medio del constructor
+    }
 
-class Queue {
-    constructor() {
-      this.items = [];
+    enqueue(element)   //Insertion ------------------
+    {
+      this.itemsQueue.push(element); 
     }
   
-    // Método para insertar un elemento en la cola
-    enqueue(element) {
-      this.items.push(element);
+    dequeue()  //Deletetion--------------
+    {
+      if (this.isEmpty()) 
+      {
+      return "La cola está vacía";
+      }
+
+      return "Valor eliminado: " + this.itemsQueue.shift();  //Elimina el primer elemento y muestra
     }
   
-    // Método para eliminar y devolver el primer elemento de la cola
-    dequeue() 
+    peek() // Método para leer el primer elemento de la cola sin eliminarlo
     {
       if (this.isEmpty()) 
         {
         return "La cola está vacía";
         }
-      return this.items.shift();
+      return this.itemsQueue[0];
     }
   
-    // Método para leer el primer elemento de la cola sin eliminarlo
-    peek() {
-      if (this.isEmpty()) {
-        return "La cola está vacía";
-      }
-      return this.items[0];
+    isEmpty() // Validacion para saber si se encuentra vacio
+    {
+      return this.itemsQueue.length === 0;
     }
   
-    // Método para verificar si la cola está vacía
-    isEmpty() {
-      return this.items.length === 0;
+    size() // Método para obtener el tamaño de la cola
+    {
+      return this.itemsQueue.length;
     }
-  
-    // Método para obtener el tamaño de la cola
-    size() {
-      return this.items.length;
-    }
-
-printQueue(){
-    this.array.forEach(element => {
-        console.log(element)
-    })
-}
   
     // Método para imprimir la cola
-    print() {
-      let str = "";
-      for (let i = 0; i < this.items.length; i++) {
-        str += this.items[i] + " ";
-      }
-      return str;
+    print()  //Read -----------------
+    {
+      let returnQueue = "";
+      for (let i = 0; i < this.itemsQueue.length; i++) 
+        {
+          returnQueue += this.itemsQueue[i];
+          if(i+1<this.itemsQueue.length)
+            {
+              returnQueue += ", ";
+            }
+        }
+      return returnQueue;
     }
+}
+  
+const queue = new Queue();
+ 
+function StartProgram()
+{
+  document.getElementById("output2").innerText = "In Real Time  [" + queue.print() + "]";
+}
+
+function Read()  //Metodo para leer
+  {
+    document.getElementById("output").innerText = "Size: " + queue.size() + "  Queue: " + queue.print();
   }
   
-  // Ejemplo de uso
-  const queue = new Queue();
+  function searchFirst()  //Metodo para buscar el primero
+  {
+    document.getElementById("output").innerText = "First Element: " + queue.peek();
+  }
   
-  // Inserción de elementos en la cola
-  queue.enqueue("Read");
-  queue.enqueue("Insertion");
-  queue.enqueue("Deletion");
-  
+  function deletion()  //Metodo para eliminar
+  {
+    document.getElementById("output").innerText = queue.dequeue();
+    document.getElementById("output2").innerText = "In Real Time  [" + queue.print() + "]";
+  }
+
+  function addToQueue()  //Agregar al Queue
+  {
+    var number = parseInt(document.getElementById("inputNumber").value); // Obtenemos el número del cuadro de texto
+
+    // Verificamos si el número es válido
+    if (!isNaN(number)) 
+      {
+      queue.enqueue(number); // Agregamos el número a la cola
+      alert("Se agrego correctamente el numero:  --->>>" + number);
+      document.getElementById("output2").innerText = "In Real Time  [" + queue.print() + "]";
+      } 
+    else //Validacion en caso de que no se ingrese ningun numero
+      { 
+      alert("Por favor, ingresa un número.");
+      }
+  }
+
+
+  function insertion() 
+  {
+    queue.enqueue("1");
+    queue.enqueue("2");
+    queue.enqueue("3");
+    queue.enqueue("4");
+    queue.enqueue("5");
+    queue.enqueue("6");
+    document.getElementById("output").innerText = "Insertion operation performed";
+  }
+
+   //Inserción de elementos en la cola
+  queue.enqueue("1");
+  queue.enqueue("2");
+  queue.enqueue("3");
+  queue.enqueue("4");
+  queue.enqueue("5");
+  queue.enqueue("6");
+
   // Impresión de la cola
-  console.log("Cola actual:", queue.print());
+   console.log("Cola actual:", queue.print());
   
-  // Lectura del primer elemento de la cola
-  console.log("Primer elemento de la cola:", queue.peek());
-  
-  // Eliminación del primer elemento de la cola
-  console.log("Elemento eliminado:", queue.dequeue());
-  
+   //Lectura del primer elemento de la cola
+   console.log("Primer elemento de la cola:", queue.peek());
+   
+   //Eliminación del primer elemento de la cola
+   console.log("Elemento eliminado:", queue.dequeue());
+   
   // Impresión de la cola después de la eliminación
-  console.log("Cola actualizada:", queue.print());
+   console.log("Cola actualizada:", queue.print());
+
   
-
-
-
-
-// class Queue {
-//     constructor() {
-//         this.items = {}
-//         this.frontIndex = 0
-//         this.backIndex = 0
-//     }
-//     enqueue(item) {
-//         this.items[this.backIndex] = item
-//         this.backIndex++
-//         return item + ' es el #' + this.backIndex + ' agregado.'
-//     }
-//     dequeue() {
-//         const item = this.items[this.frontIndex]
-//         delete this.items[this.frontIndex]
-//         this.frontIndex++
-//         return 'Se elimino el # ' + item 
-//     }
-//     peek() {
-//         return this.items[this.frontIndex]
-//     }
-//     get printQueue() {
-//         return this.items;
-//     }
-// }
-// const queue = new Queue()
-// console.log(queue.enqueue(7))
-// console.log(queue.enqueue(2))
-// console.log(queue.enqueue(6))
-// console.log(queue.enqueue(4))
-// console.log(queue.dequeue())
-// console.log(queue.peek())
-// let str = queue.printQueue;
-// console.log(str)
-
-
-
-//Hecho por el profesor
-// class Queue{
-
-//     constructor()
-//     {
-//         this.array = [];
-//     }
-
-//     Enqueue(element)
-//     {
-//         this.array.push(element);
-//     }
-
-//    Dequeue()
-//    {
-//        this.array.shift(); 
-//    }
-
-//    printQueue()
-//    {
-//         this.array.forEach(element => {
-//             console.log(element);
-//         });
-//    }
-// }
-
-// const cola = new Queue();
-// cola.Enqueue(1);
-// cola.Enqueue(2);
-// cola.Enqueue(3);
-
-// cola.Dequeue();
-
-// cola.printQueue();

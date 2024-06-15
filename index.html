@@ -7,10 +7,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body onload="StartProgram()">  
-  <div class="container">
+  <div class="container">   <!-- crea un contenedor bajo la clase container-->
     <h1>Queue Structure</h1>
-    <div class="operations">
-      
+    <div class="operations"> <!-- Para contener los botones -->
       <button onclick="Read()">Read</button>
       <button onclick="searchFirst()">First Element</button>
       <!--button onclick="insertion()">Insertion</button-->
@@ -18,11 +17,14 @@
     </div>
     <!-- Asi se agrega comentarios -->
     <div>
-      <input type="number" id="inputNumber" placeholder="Ingresa un número">
+      <input type="string" id="inputNumber" placeholder="Ingresa un número">
       <button onclick="addToQueue()">Add to queue</button>
     </div>
     <div id="output"></div>
     <div id="output2"></div>
+    <div id="imageContainer">
+      <img src="Queue1.png">
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
