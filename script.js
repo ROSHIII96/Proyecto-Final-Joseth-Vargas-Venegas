@@ -1,105 +1,95 @@
-class Queue 
+class Queue
 {
-    constructor() 
+    constructor()
     {
-      this.items = [];
+      this.itemsQueue = [];  //Se agrega el array por medio del constructor
+    }
+
+    enqueue(element)   //Insertion ------------------
+    {
+      this.itemsQueue.push(element); 
     }
   
-    // Método para insertar un elemento en la cola
-    enqueue(element) 
-    {
-      this.items.push(element); 
-    }
-  
-    // Método para eliminar y devolver el primer elemento de la cola
-    dequeue() 
+    dequeue()  //Deletetion--------------
     {
       if (this.isEmpty()) 
         {
-        return "La cola está vacía";
+        return "The queue is empty";
         }
-      return this.items.shift();
+      return "Removed value: " + this.itemsQueue.shift(); //Elimina y muestra primer elemento
     }
   
-    // Método para leer el primer elemento de la cola sin eliminarlo
-    peek() 
+    peek() // Método para leer el primer elemento de la cola sin eliminarlo
     {
       if (this.isEmpty()) {
-        return "La cola está vacía";
+        return "The queue is empty";
       }
-      return this.items[0];
+      return this.itemsQueue[0];
     }
   
-    // Método para verificar si la cola está vacía
-    isEmpty() 
+    isEmpty() // Validacion para saber si se encuentra vacio
     {
-      return this.items.length === 0;
+      return this.itemsQueue.length === 0;
     }
   
-    // Método para obtener el tamaño de la cola
-    size() 
+    size() // Método para obtener el tamaño de la cola
     {
-      return this.items.length;
+      return this.itemsQueue.length;
     }
   
-    printQueue()  ///Este lo agregue yo para ver el foreach
-   {
-        this.array.forEach(element => {
-            console.log(element);
-        });
-   }
     // Método para imprimir la cola
-    print() 
+    print()  //Read -----------------
     {
-      let str = "";
-      for (let i = 0; i < this.items.length; i++) {
-        str += this.items[i] + " ";
-      }
-      return str;
+      let returnQueue = "";
+      for (let i = 0; i < this.itemsQueue.length; i++) 
+        {
+          returnQueue += this.itemsQueue[i]; //
+          if(i+1<this.itemsQueue.length)
+            {
+              returnQueue += ", ";
+            }
+        }
+      return returnQueue;
     }
-  }
+}
   
-  // Ejemplo de uso
-  const queue = new Queue();
-  
-  // Inserción de elementos en la cola
-  queue.enqueue("1");
-  queue.enqueue("2");
-  queue.enqueue("3");
-  queue.enqueue("4");
-  queue.enqueue("5");
-  queue.enqueue("6");
+const queue = new Queue(); //Instancia
+ 
+function StartProgram()
+{
+  document.getElementById("output2").innerText = "In Real Time  [" + queue.print() + "]"; //Busca el elemento con este id y se actualiza
+}
 
-   // Impresión de la cola
-   console.log("Cola actual:", queue.print());
+function Read()  //Metodo para leer
+{
+    document.getElementById("output").innerText = "Size: " + queue.size() + "  Queue: " + queue.print();
+}
   
-   // Lectura del primer elemento de la cola
-   console.log("Primer elemento de la cola:", queue.peek());
-   
-   // Eliminación del primer elemento de la cola
-   console.log("Elemento eliminado:", queue.dequeue());
-   
-   // Impresión de la cola después de la eliminación
-   console.log("Cola actualizada:", queue.print());
+function searchFirst()  //Metodo para buscar el primero
+{
+    document.getElementById("output").innerText = "First Element: " + queue.peek();
+}
+  
+function deletion()  //Metodo para eliminar
+{
+    document.getElementById("output").innerText = queue.dequeue();
+   document.getElementById("output2").innerText = "In Real Time  [" + queue.print() + "]";
+}
 
+function addToQueue()  //Agregar al Queue
+{
+  var number = parseInt(document.getElementById("inputNumber").value); // Obtenemos el número del cuadro de texto
+    
+  if (!isNaN(number)) 
+    {
+      queue.enqueue(number); // Agregamos el número a la cola
+      alert("Se agrego correctamente el numero  --->>>  " + number);
+      document.getElementById("output2").innerText = "In Real Time  [" + queue.print() + "]";
+    } 
+    else 
+    { 
+      alert("Por favor, ingresa un número.");
+    }
+}
 
-function access() 
-  {
-    document.getElementById("output").innerText = "Access operation performed";
-  }
-  
-  function search() 
-  {
-    Queue.enqueue
-    document.getElementById("output").innerText = "Search operation performed";
-  }
-  
-  function insertion() 
-  {
-    document.getElementById("output").innerText = "Insertion operation performed";
-  }
-  
-  function deletion() 
-  {
-    document.getElementById("output").innerText = "Deletion operation performed";
-  }
+//Cambios finales realizados

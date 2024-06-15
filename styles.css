@@ -1,47 +1,76 @@
-.container {
+body { /* Imagen*/
+  background-image: url('https://cursos.aiu.edu/images/Evatronix_Algorithm_development_and_analysis_01_1920x1080.jpg'); /* Ruta de tu imagen de fondo */
+  background-position: center;
+  background-attachment: fixed; /* La imagen se queda de fondo al desplazar */
+}
+
+.container {  /*  Recuadro  */
     text-align: center;
-    max-width: 600px;
+    max-width: 600px; 
     margin: 0 auto;
-    padding: 20px;
+    padding: 50px;       /*  Margen con los elementos dentro */
     background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
   
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+  h1 { /*  Titulo  */
+    font-size: 35px;
+    margin-bottom: 15px;
+    color: #700c37;
   }
   
-  .operations {
-    display: flex;
+  .operations { /*  Estructura en botones  */
+    display: flex;       /* Adaptable */
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 20px;  /* Margen a contenido vertical*/
   }
   
-  button {
+  button {  /*Botones*/
     margin: 5px;
-    padding: 10px 20px;
+    padding: 10px 20px;   /*Estira hacia arriba o abajo el button*/
     font-size: 16px;
-    cursor: pointer;
-    border: none;
+    cursor: crosshair; /* Cambiar forma mouse*/
+    /*border: none;*/ 
     background-color: #007bff;
     color: #fff;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    border-radius: 5px;   /*Redondea borde*/
   }
   
-  button:hover {
-    background-color: #0056b3;
+  button:hover { /*  Efecto en botones  */
+    background-color: #7db300;
   }
-  
+
   #output {
     font-size: 18px;
-    margin-top: 20px;
+    margin-top: 20px;       /*Para arriba*/
     border: 1px solid #007bff;
-    padding: 10px;
+    padding: 20px;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 100px;   /*  Curvea esquinas  */
   }
+  
+  #output2 {
+    text-align: center; 
+    max-width: 600px; /*  Largo  */
+    margin: 15px auto ;
+    padding: 20px;
+    border: 1px solid #18d237;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra*/
+  }
+
+  #imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* Para centrar y mover png*/
+    height: 50vh; /* Mueve y centra verticalmente */
+  }
+  
+  #imageContainer img {
+    transform: scale(0.6);
+  }
+  
+  
+  
+  
   
